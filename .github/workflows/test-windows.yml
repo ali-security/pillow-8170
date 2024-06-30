@@ -47,7 +47,7 @@ jobs:
 
     # sets env: pythonLocation
     - name: Set up Python
-      uses: actions/setup-python@v1
+      uses: MatteoH2O1999/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
         architecture: ${{ matrix.architecture }}
@@ -60,8 +60,8 @@ jobs:
     - name: Print build system information
       run: python .github/workflows/system-info.py
 
-    - name: pip install wheel pytest pytest-cov
-      run: python -m pip install wheel pytest pytest-cov
+    - name: pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' wheel pytest pytest-cov
+      run: python -m pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' wheel pytest pytest-cov
 
     - name: Prepare dependencies
       run: |
@@ -212,7 +212,7 @@ jobs:
               ${{ matrix.package }}-ghostscript \
               subversion
 
-          python3 -m pip install pyroma
+          python3 -m pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' pyroma
 
           pushd depends && ./install_extra_test_images.sh && popd
 
@@ -228,7 +228,7 @@ jobs:
 
       - name: Upload coverage
         run: |
-          python3 -m pip install codecov
+          python3 -m pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' codecov
           bash <(curl -s https://codecov.io/bash) -F GHA_Windows
         env:
           CODECOV_NAME: MSYS2 ${{ matrix.mingw }}

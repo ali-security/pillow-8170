@@ -67,11 +67,11 @@ debug:
 	CFLAGS='-g -O0' python3 setup.py build_ext install > /dev/null
 
 install-req:
-	python3 -m pip install -r requirements.txt
+	python3 -m pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
 
 install-venv:
 	virtualenv .
-	bin/pip install -r requirements.txt
+	bin/pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt
 
 release-test:
 	$(MAKE) install-req

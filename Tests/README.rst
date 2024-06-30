@@ -8,7 +8,7 @@ Dependencies
 
 Install::
 
-    python3 -m pip install pytest pytest-cov
+    python3 -m pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' pytest pytest-cov
 
 Execution
 ---------

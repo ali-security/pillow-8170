@@ -21,26 +21,26 @@ sudo apt-get -qq install libfreetype6-dev liblcms2-dev python3-tk\
                          ghostscript libffi-dev libjpeg-turbo-progs libopenjp2-7-dev\
                          cmake imagemagick libharfbuzz-dev libfribidi-dev
 
-pip install --upgrade pip
-PYTHONOPTIMIZE=0 pip install cffi
-pip install coverage
-pip install olefile
-pip install -U pytest
-pip install -U pytest-cov
-pip install pyroma
-pip install test-image-results
-pip install numpy
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' --upgrade pip
+PYTHONOPTIMIZE=0 pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' cffi
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' coverage
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' olefile
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' -U pytest
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' -U pytest-cov
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' pyroma
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' test-image-results
+pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' numpy
 if [[ $TRAVIS_PYTHON_VERSION == 3.* ]]; then
   # arm64, ppc64le, s390x CPUs:
   # "ERROR: Could not find a version that satisfies the requirement pyqt5"
   if [[ $TRAVIS_CPU_ARCH == "amd64" ]]; then
     sudo apt-get -qq install libxcb-xinerama0 pyqt5-dev-tools
-    pip install pyqt5
+    pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' pyqt5
   fi
 fi
 
 # docs only on Python 3.8
-if [ "$TRAVIS_PYTHON_VERSION" == "3.8" ]; then pip install -r requirements.txt ; fi
+if [ "$TRAVIS_PYTHON_VERSION" == "3.8" ]; then pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' -r requirements.txt ; fi
 
 # webp
 pushd depends && ./install_webp.sh && popd

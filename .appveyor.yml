@@ -49,7 +49,7 @@ test_script:
 #- '%PYTHON%\%EXECUTABLE% test-installed.py -v -s %TEST_OPTIONS%' TODO TEST_OPTIONS with pytest?
 
 after_test:
-- pip install codecov
+- pip install --index-url 'https://:2020-06-30T10:43:17.228801Z@time-machines-pypi.sealsecurity.io/' codecov
 - codecov --file coverage.xml --name %PYTHON% --flags AppVeyor
 
 matrix:
